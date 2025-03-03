@@ -2,8 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Kernel\View\View;
+
 class BaobabController {
     public function index() {
-        include_once APP_PATH . '/views/pages/baobab.php';
+        $view = new View();
+        $view->page('baobab');
     }
 }
