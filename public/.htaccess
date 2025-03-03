@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Разрешить прямой доступ к файлам статики (изображения, CSS, JS)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule \.(css|js|jpg|jpeg|png|gif|ico|woff|woff2|ttf|svg|map)$ - [L,NC]
+
+# Перенаправить ВСЕ запросы на index.php, даже если запрашиваемый .php-файл существует
+RewriteCond %{REQUEST_FILENAME} !index.php
+RewriteRule ^ index.php [L]
