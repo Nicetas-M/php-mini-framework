@@ -2,14 +2,19 @@
 
 namespace App\Kernel\Router;
 
+use App\Kernel\Controller\Controller;
+
 class Router {
     private array $routes = [
         'GET' => [],
         'POST' => []
     ];
 
-    public function __construct() {
+    public function __construct(
+        private View $view
+    ) {
         $this->initRoutes();
+
     }
 
     public function dispatch(string $uri, string $method): void {
@@ -21,8 +26,12 @@ class Router {
 
         if (is_array($route->getAction())) {
             [$controller, $action] = $route->getAction();
+
+            /** @var Controller $controller */
             $controller = new $controller();
+
             //$controller->$action();
+            call_user_func([$controller, 'setView'], $this->view);
             call_user_func([$controller, $action]);
         } else {
             //$route->getAction()();
