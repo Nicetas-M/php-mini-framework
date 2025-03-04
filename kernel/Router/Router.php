@@ -3,6 +3,7 @@
 namespace App\Kernel\Router;
 
 use App\Kernel\Controller\Controller;
+use App\Kernel\View\View;
 
 class Router {
     private array $routes = [
