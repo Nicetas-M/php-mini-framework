@@ -15,7 +15,6 @@ class Router {
         private View $view
     ) {
         $this->initRoutes();
-
     }
 
     public function dispatch(string $uri, string $method): void {
@@ -63,5 +62,4 @@ class Router {
     private function getRoutes(): array {
         return require_once APP_PATH . '/config/routes.php';
     }
-
 }

@@ -3,8 +3,6 @@
 namespace App\Kernel;
 
 use App\Kernel\Container\Container;
-use App\Kernel\Http\Request;
-use App\Kernel\Router\Router;
 
 class App {
     private Container $container;
@@ -14,7 +12,6 @@ class App {
     }
 
     public function run(): void {
-
         $this->container
             ->router
             ->dispatch(
