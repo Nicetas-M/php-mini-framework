@@ -3,8 +3,13 @@
 namespace App\Kernel\View;
 
 use App\Kernel\Exceptions\ViewNotFoundException;
+use App\Kernel\Session\Session;
 
 class View {
+    public function __construct(
+        private Session $session
+    ) {}
+
     public function page(string $name): void {
         $viewPath = APP_PATH . "/views/pages/$name.php";
 
@@ -12,11 +17,16 @@ class View {
             throw new ViewNotFoundException("View $name does not exist");
         }
 
-        extract([
-            'view' => $this
-        ]);
+        extract($this->defaultData());
 
         include_once $viewPath;
+    }
+
+    private function defaultData(): array {
+        return [
+          'view' => $this,
+          'session' => $this->session
+        ];
     }
 
     public function component(string $name): void {
