@@ -6,4 +6,4 @@ The list of necessary dependencies for the project is in composer.json (it is al
 
 This project can be deployed using lando (there is a lando.yaml file in the root of the project, which describes the configuration and services).
 
-[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=I'm+the+Jacks+cool+head)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=I'm+Jack's+cool+head)](https://git.io/typing-svg)
