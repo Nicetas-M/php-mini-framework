@@ -2,19 +2,19 @@
 
 namespace App\Kernel\View;
 
-use App\Kernel\Exceptions\ViewNotFoundException;
-use App\Kernel\Session\Session;
+use App\Kernel\Exceptions\NotFoundException;
+use App\Kernel\Session\SessionInterface;
 
-class View {
+class View implements ViewInterface{
     public function __construct(
-        private Session $session
+        private SessionInterface $session
     ) {}
 
     public function page(string $name): void {
         $viewPath = APP_PATH . "/views/pages/$name.php";
 
         if (!file_exists($viewPath)) {
-            throw new ViewNotFoundException("View $name does not exist");
+            throw new NotFoundException("View $name does not exist");
         }
 
         extract($this->defaultData());
