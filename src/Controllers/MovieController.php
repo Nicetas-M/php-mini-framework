@@ -27,7 +27,6 @@ class MovieController extends Controller {
             }
             $this->redirect('/admin/movies/add');
         }
-
         dd ('Validation Passed');
     }
 }
