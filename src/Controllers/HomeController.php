@@ -7,7 +7,6 @@ use App\Kernel\View\View;
 
 class HomeController extends Controller {
     public function index(): void {
-        dd($this->db());
         $this->view('home');
     }
 }
