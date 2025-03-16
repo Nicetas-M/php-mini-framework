@@ -1,6 +1,6 @@
 <?php
 
-use App\Controllers\AuthorizationController;
+use App\Controllers\AuthenticationController;
 use App\Controllers\MovieController;
 use App\Controllers\HomeController;
 use App\Controllers\RegisterController;
@@ -13,6 +13,7 @@ return [
     Route::post('/admin/movies/add', [MovieController::class, 'store']),
     Route::get('/register', [RegisterController::class, 'index']),
     Route::post('/register', [RegisterController::class, 'register']),
-    Route::get('/authorization', [AuthorizationController::class, 'index']),
-    Route::post('/authorization', [AuthorizationController::class, 'authorization']),
+    Route::get('/authentication', [AuthenticationController::class, 'index']),
+    Route::post('/authentication', [AuthenticationController::class, 'authentication']),
+    Route::post('/logout', [AuthenticationController::class, 'logout']),
 ];

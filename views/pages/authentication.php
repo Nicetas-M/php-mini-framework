@@ -7,9 +7,9 @@
 
 <?php $view->component('start'); ?>
 
-    <h1>Authorization</h1>
+    <h1>Authentication</h1>
 
-    <form action="/authorization" method="post">
+    <form action="/authentication" method="post">
         <?php if ($session->has('error')) { ?>
             <p style="color: red;">
                 <?= $session->getFlash('error') ?>
