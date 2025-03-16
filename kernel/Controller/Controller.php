@@ -2,6 +2,8 @@
 
 namespace App\Kernel\Controller;
 
+use App\Kernel\Auth\AuthInterface;
+use App\Kernel\Database\Database;
 use App\Kernel\Database\DatabaseInterface;
 use App\Kernel\Http\RedirectInterface;
 use App\Kernel\Http\RequestInterface;
@@ -14,6 +16,7 @@ abstract class Controller {
     private RedirectInterface $redirect;
     private SessionInterface $session;
     private DatabaseInterface $database;
+    private AuthInterface $auth;
 
     public function view(string $name): void {
         $this->view->page($name);
@@ -52,5 +55,13 @@ abstract class Controller {
 
     public function setDatabase(DatabaseInterface $database): void {
         $this->database = $database;
+    }
+
+    public function auth(): AuthInterface {
+        return $this->auth;
+    }
+
+    public function setAuth(AuthInterface $auth): void {
+        $this->auth = $auth;
     }
 }
